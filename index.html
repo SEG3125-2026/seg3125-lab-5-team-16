@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Cuts - Lab 5 Hair Salon Booking</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header with business name and contact info -->
+    <header class="bg-primary text-white py-4 shadow-sm">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-0">
+                        <i class="bi bi-scissors me-2"></i>
+                        Elite Cuts
+                    </h1>
+                    <p class="mb-0 text-white-50">Premium Hair Salon & Barbershop</p>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <p class="mb-1"><i class="bi bi-telephone me-2"></i>(613) 555-0123</p>
+                    <p class="mb-0"><i class="bi bi-envelope me-2"></i>info@elitecuts.ca</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navbar - One-pager navigation (Lab 5) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#info">Elite Cuts</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services-section">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#staff-section">Experts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#datetime-section">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#payment-section">Payment</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Business information: address, hours, contact (Info section) -->
+    <section id="info" class="py-4 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-geo-alt-fill text-primary fs-1 mb-3"></i>
+                            <h5 class="card-title">Location</h5>
+                            <p class="card-text">123 Main Street<br>Ottawa, ON K1A 0A1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-clock-fill text-primary fs-1 mb-3"></i>
+                            <h5 class="card-title">Hours</h5>
+                            <p class="card-text">
+                                Mon-Fri: 9:00 AM - 7:00 PM<br>
+                                Sat: 8:00 AM - 6:00 PM<br>
+                                Sun: 10:00 AM - 4:00 PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-info-circle-fill text-primary fs-1 mb-3"></i>
+                            <h5 class="card-title">Contact</h5>
+                            <p class="card-text">
+                                Phone: (613) 555-0123<br>
+                                Email: info@elitecuts.ca<br>
+                                Walk-ins Welcome!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress indicator showing current step -->
+    <section id="progress-section" class="py-3 bg-white border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="progress-indicator d-flex justify-content-between align-items-center">
+                        <div class="step active" id="step-service">
+                            <div class="step-circle">1</div>
+                            <span class="step-label d-none d-md-inline">Choose Service</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" id="step-staff">
+                            <div class="step-circle">2</div>
+                            <span class="step-label d-none d-md-inline">Choose Stylist</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" id="step-datetime">
+                            <div class="step-circle">3</div>
+                            <span class="step-label d-none d-md-inline">Date & Time</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" id="step-contact">
+                            <div class="step-circle">4</div>
+                            <span class="step-label d-none d-md-inline">Your Info</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" id="step-payment">
+                            <div class="step-circle">5</div>
+                            <span class="step-label d-none d-md-inline">Payment</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" id="step-confirm">
+                            <div class="step-circle">6</div>
+                            <span class="step-label d-none d-md-inline">Confirm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container my-5">
+        <!-- Services section -->
+        <section id="services-section" class="booking-section">
+            <h2 class="mb-4">
+                <i class="bi bi-scissors me-2 text-primary"></i>
+                Our Services
+            </h2>
+            <p class="text-muted mb-4">Select a service to see pricing and duration. Click on a service card to view details.</p>
+            
+            <div class="row g-4" id="services-container">
+                <!-- Service cards will be dynamically generated -->
+            </div>
+
+            <!-- Show selected service summary -->
+            <div id="service-summary" class="mt-4 d-none">
+                <div class="alert alert-info d-flex align-items-center" role="alert">
+                    <i class="bi bi-check-circle-fill me-2 fs-4"></i>
+                    <div>
+                        <strong>Selected Service:</strong> <span id="selected-service-name"></span>
+                        <br>
+                        <small>Price: <span id="selected-service-price"></span> | Duration: <span id="selected-service-duration"></span></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue button -->
+            <div class="text-center mt-4">
+                <button id="next-to-staff" class="btn btn-primary btn-lg d-none" disabled>
+                    Continue to Choose Stylist <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Staff selection section -->
+        <section id="staff-section" class="booking-section">
+            <h2 class="mb-4">
+                <i class="bi bi-people-fill me-2 text-primary"></i>
+                Our Expert Stylists
+            </h2>
+            <p class="text-muted mb-4">Choose your preferred stylist (optional). All our stylists are highly trained professionals.</p>
+            
+            <div class="row g-4" id="staff-container">
+                <!-- Staff cards will be dynamically generated -->
+            </div>
+
+            <!-- Selected Staff Summary -->
+            <div id="staff-summary" class="mt-4 d-none">
+                <div class="alert alert-info d-flex align-items-center" role="alert">
+                    <i class="bi bi-person-check-fill me-2 fs-4"></i>
+                    <div>
+                        <strong>Selected Stylist:</strong> <span id="selected-staff-name"></span>
+                        <br>
+                        <small>Specialty: <span id="selected-staff-specialty"></span></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button id="back-to-service" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </button>
+                <button id="next-to-datetime" class="btn btn-primary btn-lg" disabled>
+                    Continue to Date & Time <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Date & Time Section -->
+        <section id="datetime-section" class="booking-section">
+            <h2 class="mb-4">
+                <i class="bi bi-calendar-check me-2 text-primary"></i>
+                Select Date & Time
+            </h2>
+            <p class="text-muted mb-4">Choose your preferred appointment date and time.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <label for="appointment-date" class="form-label">
+                                <i class="bi bi-calendar3 me-2"></i>Select Date
+                            </label>
+                            <input type="date" class="form-control form-control-lg" id="appointment-date" required>
+                            <div class="form-text">Please select a date within the next 30 days</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <label for="appointment-time" class="form-label">
+                                <i class="bi bi-clock me-2"></i>Select Time
+                            </label>
+                            <select class="form-select form-select-lg" id="appointment-time" required>
+                                <option value="">Choose a time...</option>
+                                <!-- Time slots will be populated dynamically -->
+                            </select>
+                            <div class="form-text">Available time slots based on selected date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selected Date/Time Summary -->
+            <div id="datetime-summary" class="mt-4 d-none">
+                <div class="alert alert-info d-flex align-items-center" role="alert">
+                    <i class="bi bi-calendar-event me-2 fs-4"></i>
+                    <div>
+                        <strong>Selected Appointment:</strong> <span id="selected-datetime"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button id="back-to-staff" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </button>
+                <button id="next-to-contact" class="btn btn-primary btn-lg" disabled>
+                    Continue to Contact Info <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section id="contact-section" class="booking-section">
+            <h2 class="mb-4">
+                <i class="bi bi-person-lines-fill me-2 text-primary"></i>
+                Your Contact Information
+            </h2>
+            <p class="text-muted mb-4">We need your contact details to confirm your appointment and send you a reminder.</p>
+            
+            <!-- Error messages container -->
+            <div id="form-error-alert" class="alert alert-danger d-none" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>Please fix the following errors:</strong>
+                <ul id="error-list" class="mb-0 mt-2"></ul>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="contact-form">
+                                <div class="mb-3">
+                                    <label for="customer-name" class="form-label">
+                                        <i class="bi bi-person me-2"></i>Full Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="customer-name" required 
+                                           placeholder="e.g. Jane Smith"
+                                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Letters and spaces only — no numbers allowed."
+                                           aria-describedby="name-help name-error">
+                                    <div id="name-help" class="form-text">We use this to personalize your appointment. Letters and spaces only.</div>
+                                    <div id="name-error" class="invalid-feedback d-none"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="customer-email" class="form-label">
+                                        <i class="bi bi-envelope me-2"></i>Email Address <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="customer-email" required 
+                                           placeholder="your.email@example.com"
+                                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="We'll send your confirmation and reminder here."
+                                           aria-describedby="email-help email-error">
+                                    <div id="email-help" class="form-text">We'll send your confirmation and reminder here</div>
+                                    <div id="email-error" class="invalid-feedback d-none"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="customer-phone" class="form-label">
+                                        <i class="bi bi-telephone me-2"></i>Phone Number <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel" class="form-control" id="customer-phone" required
+                                           placeholder="(613) 555-0123 or 613-555-0123"
+                                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Format: (XXX) XXX-XXXX or XXX-XXX-XXXX"
+                                           aria-describedby="phone-help phone-error">
+                                    <div id="phone-help" class="form-text">Format: (XXX) XXX-XXXX or XXX-XXX-XXXX</div>
+                                    <div id="phone-error" class="invalid-feedback d-none"></div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="special-notes" class="form-label">
+                                        <i class="bi bi-chat-left-text me-2"></i>Special Notes or Requests
+                                    </label>
+                                    <textarea class="form-control" id="special-notes" rows="3" 
+                                              placeholder="Any allergies, preferences, or special requests..."
+                                              aria-describedby="notes-help"></textarea>
+                                    <div id="notes-help" class="form-text">Optional - Let us know if you have any specific requirements</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button id="back-to-datetime" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </button>
+                <button id="next-to-payment" class="btn btn-primary btn-lg" disabled>
+                    Continue to Payment <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Payment Section (Lab 5) -->
+        <section id="payment-section" class="booking-section">
+            <h2 class="mb-4">
+                <i class="bi bi-credit-card me-2 text-primary"></i>
+                Payment
+            </h2>
+            <p class="text-muted mb-4">Enter your card details to complete the booking. All fields are required.</p>
+            
+            <div id="payment-error-alert" class="alert alert-danger d-none" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>Please fix the following errors:</strong>
+                <ul id="payment-error-list" class="mb-0 mt-2"></ul>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="payment-form">
+                                <div class="mb-3">
+                                    <label for="card-number" class="form-label">
+                                        <i class="bi bi-credit-card-2-front me-2"></i>Card Number <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="card-number" maxlength="19" required
+                                           placeholder="0000 0000 0000 0000"
+                                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Enter 16 digits. Spaces are added automatically."
+                                           aria-describedby="card-number-error">
+                                    <div id="card-number-error" class="invalid-feedback d-none"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="card-expiry" class="form-label">
+                                            <i class="bi bi-calendar-event me-2"></i>Expiry (MM/YY) <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="card-expiry" maxlength="5" required
+                                               placeholder="MM/YY"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Month and year, e.g. 12/25">
+                                        <div id="card-expiry-error" class="invalid-feedback d-none"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="card-cvv" class="form-label">
+                                            <i class="bi bi-lock me-2"></i>CVV (3 or 4 digits) <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="card-cvv" maxlength="4" required
+                                               placeholder="123"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="3 or 4 digits on the back of your card">
+                                        <div id="card-cvv-error" class="invalid-feedback d-none"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="card-name" class="form-label">
+                                        <i class="bi bi-person me-2"></i>Name on Card <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="card-name" required
+                                           placeholder="As shown on card"
+                                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Letters and spaces only, as it appears on your card.">
+                                    <div id="card-name-error" class="invalid-feedback d-none"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button id="back-to-contact" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </button>
+                <button id="submit-booking" class="btn btn-primary btn-lg" disabled>
+                    <i class="bi bi-check-circle me-2"></i>Confirm Booking
+                </button>
+            </div>
+        </section>
+
+        <!-- Confirmation page -->
+        <section id="confirmation-section" class="booking-section d-none">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                </div>
+                <h2 class="mb-4">Appointment Confirmed!</h2>
+                <p class="lead text-muted mb-5">Thank you for booking with Elite Cuts. We're excited to see you!</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <h4 class="card-title mb-4">Appointment Details</h4>
+                                <div id="confirmation-details">
+                                    <!-- Confirmation details will be populated here -->
+                                </div>
+                                <hr>
+                                <div class="mt-3">
+                                    <p class="mb-2"><strong>Reference Number:</strong></p>
+                                    <p class="h5 text-primary" id="reference-number"></p>
+                                    <small class="text-muted">Please save this reference number for your records</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <h5>What's Next?</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-envelope-check me-2 text-primary"></i>Check your email for a confirmation message</li>
+                        <li class="mb-2"><i class="bi bi-bell me-2 text-primary"></i>You'll receive a reminder 24 hours before your appointment</li>
+                        <li class="mb-2"><i class="bi bi-clock me-2 text-primary"></i>Please arrive 5 minutes early</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i>Need to reschedule? Call us at (613) 555-0123</li>
+                    </ul>
+                </div>
+
+                <div class="mt-5">
+                    <button id="new-booking" class="btn btn-outline-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Book Another Appointment
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Elite Cuts</h5>
+                    <p class="text-white-50">Premium Hair Salon & Barbershop</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-1">123 Main Street, Ottawa, ON K1A 0A1</p>
+                    <p class="mb-0">© 2026 Elite Cuts. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
