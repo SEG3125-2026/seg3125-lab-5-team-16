@@ -477,9 +477,9 @@ function setupEventListeners() {
     initializeTooltips();
 }
 
-// Lab 5 regex: name = letters and spaces only; phone = (XXX) XXX-XXXX or XXX-XXX-XXXX
+// Lab 5 regex: name = letters and spaces only; phone = (XXX) XXX-XXXX or XXX-XXX-XXXX or XXXXXXXXXX
 const NAME_REGEX = /^[a-zA-Z\s]+$/;
-const PHONE_REGEX = /^\(\d{3}\)\s?\d{3}[-]?\d{4}$|^\d{3}[-]\d{3}[-]\d{4}$/;
+const PHONE_REGEX = /^(\(\d{3}\)\s?\d{3}-?\d{4}|\d{3}-\d{3}-\d{4}|\d{10})$/;
 
 // Validate the contact form
 function validateContactForm() {
@@ -533,8 +533,8 @@ function validateContactForm() {
         errors.push('Phone number is required');
         isValid = false;
     } else if (!PHONE_REGEX.test(phone.replace(/\s+/g, ' ').trim())) {
-        showFieldError('customer-phone', 'phone-error', 'Use format (XXX) XXX-XXXX or XXX-XXX-XXXX');
-        errors.push('Phone format: (XXX) XXX-XXXX or XXX-XXX-XXXX');
+        showFieldError('customer-phone', 'phone-error', 'Use format (XXX) XXX-XXXX or XXX-XXX-XXXX or XXXXXXXXXX');
+        errors.push('Phone format: (XXX) XXX-XXXX or XXX-XXX-XXXX or XXXXXXXXXX');
         isValid = false;
     } else {
         showFieldSuccess('customer-phone');
