@@ -336,14 +336,17 @@ function initializeDatePicker() {
         if (!dateStr) return;
         const date = new Date(dateStr + 'T12:00:00');
         const dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
+        var start=9;
+        var end = 19;
 
         // Constraint: weekends not available
-        if (dayOfWeek === 0 || dayOfWeek === 6) {
-            this.value = '';
-            bookingState.selectedDate = null;
-            document.getElementById('appointment-time').innerHTML = '<option value="">Choose a time...</option>';
-            alert('Weekends are not available for booking. Please select a weekday.');
-            return;
+        if (dayOfWeek === 0){
+            start = 10;
+            end = 16;
+        }
+        if (dayOfWeek === 6) {
+            start = 8;
+            end = 18;
         }
 
         // Constraint: staff off-days (if a specific stylist is selected)
@@ -355,14 +358,14 @@ function initializeDatePicker() {
             return;
         }
 
-        bookingState.selectedDate = dateStr;
-        populateTimeSlots();
+        bookingState.selectedDate = date;
+        populateTimeSlots(start, end);
         checkDateTimeComplete();
     });
 }
 
 // Generate available time slots
-function populateTimeSlots() {
+function populateTimeSlots(startHour, endHour) {
     const timeSelect = document.getElementById('appointment-time');
     const selectedDate = bookingState.selectedDate;
     
@@ -372,7 +375,7 @@ function populateTimeSlots() {
 
     // Create time slots from 9 AM to 7 PM, every 30 minutes
     const slots = [];
-    for (let hour = 9; hour < 19; hour++) {
+    for (let hour = startHour; hour < endHour; hour++) {
         for (let minute = 0; minute < 60; minute += 30) {
             const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
             const displayTime = formatTime(hour, minute);
